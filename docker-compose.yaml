@@ -1,0 +1,45 @@
+services:
+   # Первый инстанс (будет на порту 8081)
+  onlyoffice-1:
+    image: onlyoffice/documentserver:latest
+    container_name: onlyoffice-docs-1
+    restart: always
+    ports:
+      - "${PORT_1}:80"
+    deploy:
+      resources:
+        limits:
+          memory: ${OFFICE_MEM_LIMIT}
+          cpus: ${OFFICE_CPU_LIMIT}
+        reservations:
+          memory: ${OFFICE_MEM_RESERVE} 
+    environment:
+      - JWT_ENABLED=false
+    volumes:
+      - ./office1_data:/var/www/onlyoffice/Data
+      - ./office1_logs:/var/log/onlyoffice
+
+  # Второй инстанс (будет на порту 8082)
+  onlyoffice-2:
+    image: onlyoffice/documentserver:latest
+    container_name: onlyoffice-docs-2
+    restart: always
+    ports:
+      - "${PORT_2}:80"
+    deploy:
+      resources:
+        limits:
+          memory: ${OFFICE_MEM_LIMIT}
+          cpus: ${OFFICE_CPU_LIMIT}
+        reservations:
+          memory: ${OFFICE_MEM_RESERVE}
+    environment:
+      - JWT_ENABLED=false
+    volumes:
+      - ./office2_data:/var/www/onlyoffice/Data
+      - ./office2_logs:/var/log/onlyoffice
+volumes:
+  office1_data:
+  office1_logs:
+  office2_data:
+  office2_logs:

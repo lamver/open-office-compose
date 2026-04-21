@@ -1,0 +1,7 @@
+office1_logs/*
+office2_logs/*
+office1_data/*
+office2_data/*
+onlyoffice_logs/*
+onlyoffice_data/*
+.env
