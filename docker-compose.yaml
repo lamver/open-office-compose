@@ -14,7 +14,9 @@ services:
         reservations:
           memory: ${OFFICE_MEM_RESERVE} 
     environment:
-      - JWT_ENABLED=false
+       - JWT_ENABLED=true
+       - JWT_SECRET=${JWT_SECRET}
+       - JWT_HEADER=Authorization
     volumes:
       - ./office1_data:/var/www/onlyoffice/Data
       - ./office1_logs:/var/log/onlyoffice
@@ -34,7 +36,9 @@ services:
         reservations:
           memory: ${OFFICE_MEM_RESERVE}
     environment:
-      - JWT_ENABLED=false
+       - JWT_ENABLED=true
+       - JWT_SECRET=${JWT_SECRET}
+       - JWT_HEADER=Authorization
     volumes:
       - ./office2_data:/var/www/onlyoffice/Data
       - ./office2_logs:/var/log/onlyoffice
