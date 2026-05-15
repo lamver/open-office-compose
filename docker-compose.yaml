@@ -16,7 +16,7 @@ services:
     environment:
        - JWT_ENABLED=true
        - JWT_SECRET=${JWT_SECRET}
-       - JWT_HEADER=Authorization
+       - JWT_HEADER=AuthorizationJwt
     volumes:
       - ./office1_data:/var/www/onlyoffice/Data
       - ./office1_logs:/var/log/onlyoffice
@@ -38,7 +38,7 @@ services:
     environment:
        - JWT_ENABLED=true
        - JWT_SECRET=${JWT_SECRET}
-       - JWT_HEADER=Authorization
+       - JWT_HEADER=AuthorizationJwt
     volumes:
       - ./office2_data:/var/www/onlyoffice/Data
       - ./office2_logs:/var/log/onlyoffice
