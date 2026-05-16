@@ -4,8 +4,8 @@ services:
     image: onlyoffice/documentserver:latest
     container_name: onlyoffice-docs-1
     restart: always
-    #ports:
-    #  - "${PORT_1}:80"
+    ports:
+      - "${PORT_1}:80"
     deploy:
       resources:
         limits:
@@ -28,8 +28,8 @@ services:
     image: onlyoffice/documentserver:latest
     container_name: onlyoffice-docs-2
     restart: always
-    #ports:
-    #  - "${PORT_2}:80"
+    ports:
+     - "${PORT_2}:80"
     deploy:
       resources:
         limits:
