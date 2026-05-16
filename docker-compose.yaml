@@ -17,6 +17,7 @@ services:
        - JWT_ENABLED=true
        - JWT_SECRET=${JWT_SECRET}
        - JWT_HEADER=AuthorizationJwt
+       - FORWARDED_FOR_HEADERS=X-Forwarded-Proto X-Forwarded-Host
     volumes:
       - ./office1_data:/var/www/onlyoffice/Data
       - ./office1_logs:/var/log/onlyoffice
@@ -39,6 +40,7 @@ services:
        - JWT_ENABLED=true
        - JWT_SECRET=${JWT_SECRET}
        - JWT_HEADER=AuthorizationJwt
+       - FORWARDED_FOR_HEADERS=X-Forwarded-Proto X-Forwarded-Host
     volumes:
       - ./office2_data:/var/www/onlyoffice/Data
       - ./office2_logs:/var/log/onlyoffice
