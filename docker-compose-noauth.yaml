@@ -1,0 +1,26 @@
+services:
+  onlyoffice-1:
+    image: onlyoffice/documentserver:latest
+    container_name: onlyoffice-docs-1
+    restart: always
+    ports:
+      - "8081:80"
+    deploy:
+      resources:
+        limits:
+          memory: 4096m
+          cpus: '2.0'
+        reservations:
+          memory: 2048m
+    environment:
+      - JWT_ENABLED=false
+      - USE_UNAUTHORIZED_STORAGE=true
+    extra_hosts:
+      - "localhost:host-gateway"
+    volumes:
+      - office1_data:/var/www/onlyoffice/Data
+      - office1_logs:/var/log/onlyoffice
+
+volumes:
+  office1_data:
+  office1_logs:
