@@ -1,0 +1,27 @@
+{
+  "aiSettings": {
+    "version": 3,
+    "providers": {
+      "OpenAI": {
+        "url": "http://192.168.1",
+        "key": "any-key-value",
+        "models": ["llama3"]
+      }
+    },
+    "models": ["llama3"],
+    "actions": {
+      "text-generation": {
+        "provider": "OpenAI",
+        "model": "llama3"
+      },
+      "code-assistant": {
+        "provider": "OpenAI",
+        "model": "llama3"
+      },
+      "chat": {
+        "provider": "OpenAI",
+        "model": "llama3"
+      }
+    }
+  }
+}
