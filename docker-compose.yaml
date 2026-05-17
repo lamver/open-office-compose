@@ -22,7 +22,7 @@ services:
     volumes:
       - ./office1_data:/var/www/onlyoffice/Data
       - ./office1_logs:/var/log/onlyoffice
-      - ./config/config.json:/etc/onlyoffice/documentserver-plugins/config.json:ro
+      - ./config/default.json:/etc/onlyoffice/documentserver
 
   # Второй инстанс (будет на порту 8082)
   onlyoffice-2:
@@ -47,7 +47,7 @@ services:
     volumes:
       - ./office2_data:/var/www/onlyoffice/Data
       - ./office2_logs:/var/log/onlyoffice
-      - ./config/config.json:/etc/onlyoffice/documentserver-plugins/config.json:ro
+      - ./config/default.json:/etc/onlyoffice/documentserver
 volumes:
   office1_data:
   office1_logs:
