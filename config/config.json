@@ -1,13 +1,15 @@
 {
-  "services": {
-    "CoAuthoring": {
-      "plugins": {
-        "aitech": {
-          "url": "http://192.168.1.5",
-          "apiKey": "любой_набор_символов_для_локальной_модели",
-          "model": "AI"
+    "services": {
+        "CoAuthoring": {
+            "plugins": {
+                "aitech": {
+                    "defaultProvider": "aITECH",
+                    "defaultModel": "llama3",
+                    "url": "http://192.168.1.5",
+                    "apiKey": "любой_набор_символов_для_локальной_модели",
+                    "model": "AI"
+                }
+            }
         }
-      }
     }
-  }
 }
