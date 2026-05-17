@@ -1,6 +1,6 @@
 services:
-   # Первый инстанс (будет на порту 8081)
-  onlyoffice-1:
+  # Шаблон первого инстанса (будет на порту 8081)
+  onlyoffice-1: &onlyoffice_template
     image: onlyoffice/documentserver:latest
     container_name: onlyoffice-docs-1
     restart: always
@@ -19,37 +19,10 @@ services:
        - JWT_HEADER=AuthorizationJwt
        - FORWARDED_FOR_HEADERS=X-Forwarded-Proto X-Forwarded-Host
        - FORCE_SSL=true
-    volumes:
-      #- ./office1_data:/var/www/onlyoffice/Data
-      #- ./office1_logs:/var/log/onlyoffice
-      #- ./config/local.json:/etc/onlyoffice/documentserver/local.json:ro
 
-  # Второй инстанс (будет на порту 8082)
+  # Второй инстанс автоматически копирует всё из первого
   onlyoffice-2:
-    image: onlyoffice/documentserver:latest
+    <<: *onlyoffice_template
     container_name: onlyoffice-docs-2
-    restart: always
     ports:
      - "${PORT_2}:80"
-    deploy:
-      resources:
-        limits:
-          memory: ${OFFICE_MEM_LIMIT}
-          cpus: ${OFFICE_CPU_LIMIT}
-        reservations:
-          memory: ${OFFICE_MEM_RESERVE}
-    environment:
-       - JWT_ENABLED=true
-       - JWT_SECRET=${JWT_SECRET}
-       - JWT_HEADER=AuthorizationJwt
-       - FORWARDED_FOR_HEADERS=X-Forwarded-Proto X-Forwarded-Host
-       - FORCE_SSL=true
-    volumes:
-      #- ./office2_data:/var/www/onlyoffice/Data
-      #- ./office2_logs:/var/log/onlyoffice
-      #- ./config/local.json:/etc/onlyoffice/documentserver/local.json:ro
-volumes:
-  office1_data:
-  office1_logs:
-  office2_data:
-  office2_logs:
