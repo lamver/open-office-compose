@@ -1,12 +1,13 @@
 {
-  "plugins": {
-    "pluginsData": [
-      {
-        "name": "AITECH",
-        "apiKey": "bigboss",
-        "url": "http://192.168.1.5",
-        "model": "llama3"
+  "services": {
+    "CoAuthoring": {
+      "plugins": {
+        "aitech": {
+          "url": "http://192.168.1.5",
+          "apiKey": "любой_набор_символов_для_локальной_модели",
+          "model": "AI"
+        }
       }
-    ]
+    }
   }
 }
