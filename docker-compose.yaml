@@ -20,8 +20,8 @@ services:
        - FORWARDED_FOR_HEADERS=X-Forwarded-Proto X-Forwarded-Host
        - FORCE_SSL=true
     volumes:
-      - ./office1_data:/var/www/onlyoffice/Data
-      - ./office1_logs:/var/log/onlyoffice
+      #- ./office1_data:/var/www/onlyoffice/Data
+      #- ./office1_logs:/var/log/onlyoffice
       - ./config/local.json:/etc/onlyoffice/documentserver/local.json:ro
 
   # Второй инстанс (будет на порту 8082)
@@ -45,8 +45,8 @@ services:
        - FORWARDED_FOR_HEADERS=X-Forwarded-Proto X-Forwarded-Host
        - FORCE_SSL=true
     volumes:
-      - ./office2_data:/var/www/onlyoffice/Data
-      - ./office2_logs:/var/log/onlyoffice
+      #- ./office2_data:/var/www/onlyoffice/Data
+      #- ./office2_logs:/var/log/onlyoffice
       - ./config/local.json:/etc/onlyoffice/documentserver/local.json:ro
 volumes:
   office1_data:
