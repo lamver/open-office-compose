@@ -5,3 +5,4 @@ office2_data/*
 onlyoffice_logs/*
 onlyoffice_data/*
 .env
+plugins/tetsLLM.js

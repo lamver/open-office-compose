@@ -19,6 +19,9 @@ services:
        - JWT_HEADER=AuthorizationJwt
        - FORWARDED_FOR_HEADERS=X-Forwarded-Proto X-Forwarded-Host
        - FORCE_SSL=true
+    volumes:
+      - ./plugins/ai/config.json:/var/www/onlyoffice/documentserver/sdkjs-plugins/{9DC93CDB-B576-4F0C-B55E-FCC9C48DD007}/scripts/engine/providers/config.json:ro
+      - ./plugins/ai/aitech.js:/var/www/onlyoffice/documentserver/sdkjs-plugins/{9DC93CDB-B576-4F0C-B55E-FCC9C48DD007}/scripts/engine/providers/internal/aitech.js:ro
 
   # Второй инстанс автоматически копирует всё из первого
   onlyoffice-2:
